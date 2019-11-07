@@ -1,5 +1,13 @@
 var createError = require('http-errors');
-var express = require('express');
+var express = require('express'),
+    users = {
+        'test': {
+            id: 'test',
+            pw: 'test'
+        }
+    },
+    onlineUsers = {};
+    
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -47,6 +55,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json()) // body-parser를 json 형태로 받기 위함.
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', indexRouter);
+
+app.get('/chat', function (req, res) {
+  res.sendFile(__dirname + '/chat.html');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
