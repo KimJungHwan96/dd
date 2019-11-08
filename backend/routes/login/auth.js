@@ -18,7 +18,7 @@ router.get('/fail', function (req, res, next) {
 });
 
 router.get('/success', function (req, res, next) {
-    res.json({result: 1});
+    res.sendFile('../../chat2.html');
 });
 
 passport.serializeUser(function (user, done) {
@@ -50,7 +50,7 @@ passport.use('local-login', new LocalStrategy({
 }));
 
 router.post('/', passport.authenticate('local-login', {
-    successRedirect: '../../chat2.html',
+    successRedirect: '/login/auth/success',
     failureRedirect: '/login/auth/fail',
     failureFlash : true
 }));
