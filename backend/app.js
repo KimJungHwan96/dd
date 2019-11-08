@@ -1,12 +1,5 @@
 var createError = require('http-errors');
-var express = require('express'),
-    users = {
-        'test': {
-            id: 'test',
-            pw: 'test'
-        }
-    },
-    onlineUsers = {};
+var express = require('express');
     
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -57,7 +50,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', indexRouter);
 
 app.get('/chat', function (req, res) {
-  res.sendFile(__dirname + '/chat.html');
+  res.sendFile(__dirname + '/chat2.html');
 });
 
 

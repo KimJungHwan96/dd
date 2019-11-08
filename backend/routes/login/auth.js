@@ -50,7 +50,7 @@ passport.use('local-login', new LocalStrategy({
 }));
 
 router.post('/', passport.authenticate('local-login', {
-    successRedirect: '/login/auth/success',
+    successRedirect: '../../chat2.html',
     failureRedirect: '/login/auth/fail',
     failureFlash : true
 }));
