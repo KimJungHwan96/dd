@@ -18,7 +18,7 @@ router.get('/fail', function (req, res, next) {
 });
 
 router.get('/success', function (req, res, next) {
-    res.sendFile(__dirname + '../../chat2.html');
+    res.render('chat2');
 });
 
 passport.serializeUser(function (user, done) {
