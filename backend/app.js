@@ -49,9 +49,9 @@ app.use(bodyParser.json()) // body-parser를 json 형태로 받기 위함.
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', indexRouter);
 
-app.get('/chat', function (req, res) {
-  res.sendFile(__dirname + '/chat2.html');
-});
+// app.get('/chat', function (req, res) {
+//   res.sendFile(__dirname + '/chat2.html');
+// });
 
 
 // catch 404 and forward to error handler
