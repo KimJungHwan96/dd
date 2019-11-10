@@ -49,17 +49,17 @@ passport.use('local-login', new LocalStrategy({
     })
 }));
 
-router.post('/', function(req, res, next) {
-    passport.authenticate('local-login', {session: false}, function(err, user, info) {
-        if(err) res.status(500).json(err);
-        if(!user) return res.status(401).json(info.message);
+// router.post('/', function(req, res, next) {
+//     passport.authenticate('local-login', {session: false}, function(err, user, info) {
+//         if(err) res.status(500).json(err);
+//         if(!user) return res.status(401).json(info.message);
 
-        req.logIn(user, function(err) {
-            if(err) { return next(err); }
-            return res.json(user);
-        });
-    })(req, res, next);
-})
+//         req.logIn(user, function(err) {
+//             if(err) { return next(err); }
+//             return res.json(user);
+//         });
+//     })(req, res, next);
+// })
 
 router.post('/', passport.authenticate('local-login', {
     successRedirect: '/login/auth/success',
