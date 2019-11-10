@@ -37,6 +37,7 @@ passport.use('local-login', new LocalStrategy({
     session : true,
     passReqToCallback: false, // 인증을 수행하는 인증 함수로 HTTP request를 그대로 전달할지 여부를 결정한다.
 }, (email, password, done) => {
+    console.log('시발 잘 왔다 니가 보낸거');
     User.findOne({email : email}, (findError, user) => {
         if(findError) return done(findError);
         if(!user) return done(null, false, {message: 'no exist email!'});
