@@ -6,7 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy
 
 router.get('/', function (req, res, next) {
-    res.render('login');
+    res.render('chat');//login
 });
 
 router.get('/test', function (req, res, next) {
